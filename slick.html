@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+    <link rel="stylesheet" href="./resources/slick/slick-theme.css">
+    <link rel="stylesheet" href="./resources/slick/slick.css">
+    <link rel="stylesheet" href="./resources/css/common.css">
+
+    <style>
+        .our-slide{
+            width: 50vw;
+            left:25%;
+            height: 20vw;
+        }
+
+        img{
+            width: 100%;
+            height: 20vw;
+            object-fit: contain;
+        }
+
+        .slick-arrow::before{
+            color: lightcoral;
+            font-size: 20px;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="our-slide">
+        <div>
+            <img src="./resources/image/jo.jpg">
+         </div>
+         <div>
+            <img src="./resources/image/iu.jpg">
+         </div>
+         <div>
+            <img src="./resources/image/원빈.jpg">
+         </div>
+         <div>
+            <img src="./resources/image/jo.jpg">
+         </div>
+         <div>
+            <img src="./resources/image/iu.jpg">
+         </div>
+         <div>
+            <img src="./resources/image/원빈.jpg">
+         </div>
+         <div>
+            <img src="./resources/image/jo.jpg">
+         </div>
+         <div>
+            <img src="./resources/image/iu.jpg">
+         </div>
+         <div>
+            <img src="./resources/image/원빈.jpg">
+         </div>
+    </div>
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="./resources/slick/slick.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.our-slide').slick({
+                dots:true,
+                autoplay:true,
+                autoplaySpeed:1000,
+                slidesToShow:1,
+                centerMode:true
+            });
+        })
+    </script>
+    
+</body>
+</html>

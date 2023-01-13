@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <script src="./resources/js/common.js"></script>
+    <style>
+        .item {
+            width:200px;
+            height:200px;
+            display:inline-block;
+            margin:5px;
+        }
+        #item1 {
+            background:yellowgreen;
+        }
+        #item2 {
+            background:cyan;
+        }
+        #item3 {
+            background:blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>객체 생성 및 제거</h1>
+    <h2>삽입메서드</h2>
+    <pre>
+        a.appendTo(b)       : a를 b의 자식요소 뒤에 추가
+        a.prependTo(b)      : a를 b의 자식요소 앞에 추가
+        a.insertAfter(b)    : a를 b의 뒤에 추가
+        a.insertBefore(b)   : a를 b의 앞에 추가
+    </pre>
+
+    <h1 id="test1"><label>가즈아~</label></h1>
+	<h1 id="test2"><label>쑤아리 질러~</label></h1>
+	<h1 id="test3"><label>가즈아~</label></h1>
+	<h1 id="test4"><label>쑤아리 질러~</label></h1>
+
+    <script>
+        let interval = setInterval(() => {
+            jQuery(createElement('label',{text:'집으로!!'})).appendTo('#test1');
+            jQuery(createElement('label',{text:'MIC Check one two!'})).prependTo('#test2');
+            jQuery(createElement('label',{text:'집으로!!'})).insertAfter('#test3');
+            jQuery(createElement('label',{text:'MIC Check one two!'})).insertBefore('#test4');
+
+        },500);
+
+        // setInterval clear
+        setTimeout(() => {
+            clearInterval(interval);
+        },5000)
+    </script>
+
+    <h2>삽입메서드 2</h2>
+    <pre>
+       a.append(b)         : b를 a의 자식요소 뒤에 추가
+       a.prepend(b)        : b를 a의 자식요소 앞에 추가
+       a.after(b)          : b를 a 뒤에 추가
+       a.before(b)         : b를 a 앞에 추가
+    </pre>
+    <h1 id="test5"><label>상어가족 : </label></h1>
+	<h1 id="test6"><label>상어가족 : </label></h1>
+	<h1 id="test7"><label>상어가족 : </label></h1>
+	<h1 id="test8"><label>상어가족 : </label></h1>
+    <script>
+        let str = '뚜루 두 뚜루';
+        let arr = ['아기 상어! ', '귀여운 ', '바다 속 ', '아기 상어!'];
+        let arr2 = ['아빠 상어! ', '힘이 센 ', '바다 속 ', '아빠 상어'];
+
+        let idx = 0;
+
+        let interval2 = setInterval( ()=> {
+            $('#test5').append(createElement('label',{text:arr[idx]}));
+            $('#test6').prepend(createElement('label',{text:arr2[idx]}));
+            $('#test7').after(createElement('label',{text:arr[idx]}));
+            $('#test8').before(createElement('label',{text:arr2[idx]}));
+            idx++;
+
+            setTimeout(() => {
+                clearInterval(interval2);
+            },3000)
+        },1000)
+    </script>
+
+    <h2>객체 복사와 제거</h2>
+    <p>clone : html의 요소객체 복사</p>
+    <div id="clonetest">
+		<div id="item1" class="item">
+			<button class="copy">복사하기</button>
+			<button class="delete">삭제하기</button>
+		</div>
+		<div id="item2" class="item">
+			<button class="copy">복사하기</button>
+			<button class="delete">삭제하기</button>
+		</div>
+		<div id="item3" class="item">
+			<button class="copy">복사하기</button>
+			<button class="delete">삭제하기</button>
+		</div>
+	</div>
+	<div id="result"></div>
+    <script>
+        jQuery('.copy').click(ev => {
+            jQuery(ev.target).parent().clone(true).appendTo('#result');
+        })
+
+        jQuery('.delete').click(ev => {
+            jQuery(ev.target).parent().remove();
+        })
+
+    </script>
+
+</body>
+</html>

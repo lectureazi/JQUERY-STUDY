@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>입력 양식 필터 선택자</h1>
+	<p>input 태그의 type속성에 따라 문서 객체 선택 가능</p>
+	
+    <button onclick="jq()">jquery</button>
+    
+    <br>
+
+	<label>텍스트상자 : </label><input type="text"><br>
+	<label>버튼 : </label><input type="button" id="btn"><br>
+	<label>파일 : </label><input type="file"><br>
+	<br>
+	<label>이미지 : </label><input type="image" src="../image/flower1.PNG"><br>
+	<br>
+	<label>라디오버튼 : </label><input type="radio"><br>
+	<label>submit버튼 : </label><input type="submit"><br>
+    <script>
+        let jq = () => {
+            // CSS선택자가 아닌 패턴도 제공
+            //console.dir(document.querySelector('input:file'));
+            $('input:text').css('backgroundColor','red');
+            $('input:button').attr('value','제이쿼리쉽다.');
+            $('input:file').css('backgroundColor','yellow');
+            $('input:image').attr('src','./resources/image/image01.jpg')
+            $('input:radio').attr('checked',true);
+            $('input:submit').css('backgroundColor','purple').css('color','white');
+        }
+    </script>
+</body>
+</html>

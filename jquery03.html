@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h1>필터링 메소드</h1>
+	<h3>filtering 메소드의 사용법</h3>
+	<p>기본적으로 지원하지 않는 필터를 사용해 문서 객체를 선택해야 하는 경우 사용한다</p>
+	<h4 class="test">test-1</h4>
+	<h4 class="test" >test-2</h4>
+	<h4 class="test" data-test="100">test-3</h4>
+	<h4 class="test">test-4</h4>
+	<h4>test-5</h4>
+	<h4 class="test">test-6</h4>
+    <script>
+        
+        $('h4:even').css('backgroundColor','black').css('color', 'white');
+        $('h4:odd').css('backgroundColor','yellow').css('color', 'red');
+        $('h4').first().css('font-size','2rem');
+        $('h4').last().css('font-size','2rem');
+        $('h4').eq(3).css('font-size','2rem');
+        $('h4').not('.test').css('backgroundColor','lightcoral');
+        $('h4').filter((idx,e) => {
+            return e.dataset.test == 100;
+        }).css('color','blue');
+
+
+    </script>
+
+
+
+</body>
+</html>

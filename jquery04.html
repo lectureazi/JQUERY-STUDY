@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <style>
+        .wrap * {
+            border:1px solid lightgray;
+            display:block;
+            padding: 5px;
+            margin:15px;
+            color:gray;
+        }
+    </style>
+</head>
+<body>
+    <h1>순회 메서드</h1>    
+    <h2>Ancestor 메서드</h2>
+    <p>선택된 요소의 상위요소를 선택할 수 있는 메서드</p>
+    <div class="wrap">
+        <div style="width:500px;">div (great-grandparent)
+          <ul>ul (grandparent)  
+                <li>li (direct parent)
+                    <span>span</span>
+                </li>
+          </ul>   
+        </div>
+
+        <div style="width:500px;">div (grandparent)
+          <p>p (direct parent)
+              <span>span</span>
+          </p> 
+        </div> 
+   </div>
+   <script>
+        //선택된 요소의 부모요소를 리턴
+        $('span').parent().css('color','red').css('border','2px solid red');
+
+        //선택된 요소의 모든 상위요소를 리턴
+        //매개변수를 지정해 매개변수의 선택자와 일치하는 부모요소만 적용
+        $('span').parents('ul').css({'color':'blue','border':'2px solid blue'});
+
+        //선택된 요소부터 매개변수에 지정한 요소 사이의 범위에 있는 요소 리턴
+        $('span').parentsUntil('div').css('color','yellowgreen').css('border','2px solid yellowgreen');
+   </script>
+</body>
+</html>

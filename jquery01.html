@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <h1>CSS선택자</h1>
+    <h2>전체 선택자 *</h2>
+    <script>
+        console.dir($('*'));
+        $('*').css('color','red');
+    </script>
+    
+    <hr>
+
+    <h2>태그선택자 tagName</h2>
+    <p>노는게 제일좋아 친구들 모여라 언제나 즐거워 개구쟁이 뽀로로</p>
+	<h4>안녕? 난 뽀로롱야~</h4>
+	<p>노는게 제일좋아 친구들 모여라 언제나 즐거워 개구쟁이 뽀로로</p>
+    <script>
+        $('p').css('color','yellow');
+        $('p').css('backgroundColor','red');
+    </script>
+
+    <hr>
+
+    <h2>아이디 선택자 #</h2>
+    <h1>테스트1</h1>
+	<h1 id="test2">테스트2</h1>
+	<h1>테스트3</h1>
+    <script>
+        $('#test2').css('color','green');
+    </script>
+
+    <hr>
+
+    <h2>클래스 선택자 .</h2>
+    <h1 class="item">테스트1</h1>
+	<h1 class="item select">테스트2</h1>
+	<h1 class="item">테스트3</h1>
+    <h1 class="select">테스트4</h1>
+
+    <script>
+        $('.item').css('color','pink');
+        $('.select').css('font-size', '20px');
+        $('.item.select').css('font-size', '50px');
+    </script>
+
+    <hr>
+
+    <h2>자식 선택자와 후손 선택자</h2>
+    <div>
+		<ul>
+			<li><h3>apple<h3></h3></li>
+			<li>banana</li>
+			<li>orange</li>
+			<li>fineapple</li>
+			<li>peach</li>
+		</ul>
+		<h3>child h3</h3>
+	</div>
+
+    <script>
+        $('div>h3').css('color', 'gold');
+        $('div li').css('backgroundColor','gold');
+    </script>
+
+    <hr>
+
+    <h2>속성선택자</h2>
+    <pre>
+        요소[속성=값] 
+        요소[속성~=값] : 속성 값이 해당 값을 단어로써 포함하는 
+        요소[속성*=값] : 속성 값이 해당 값을 포함하는
+        요소[속성$=값] : 속성 값이 해당 값으로 끝나는 
+    </pre>
+    <input type="text">
+	<input type="password" class="test test1">
+	<input type="radio">
+	<input type="checkbox" class="test2">
+	<input type="file">
+
+    <script>
+        $('input[type=text]').val('change value');
+        $('input[class ~= test]').val('12345');
+        $('input[class *= test]').css('height','50px').css('backgroundColor','lightblue');
+        $('input[class$=st1]').css('backgroundColor','lightyellow')
+    
+       
+    </script>
+
+</body>
+</html>
